@@ -1,0 +1,531 @@
+
+/* =========================
+   1. Global Styles
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #2563eb;
+    --primary-dark: #1d4ed8;
+    --background: #f8fafc;
+    --text: #1e293b;
+    --border: #e2e8f0;
+    --white: #ffffff;
+    --success: #15803d;
+    --danger: #dc2626;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--background);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+button,
+input,
+textarea {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+button:hover {
+    transform: translateY(-1px);
+}
+
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 3px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* =========================
+   2. Header and Navigation
+========================= */
+
+header {
+    background: var(--white);
+    padding: 15px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+header h2 {
+    color: var(--primary);
+    font-size: 25px;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+nav button {
+    background: var(--primary);
+    color: var(--white);
+    padding: 9px 16px;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+nav button:hover {
+    background: var(--primary-dark);
+}
+
+/* =========================
+   3. Hero Section
+========================= */
+
+.hero {
+    padding: 65px 20px;
+    text-align: center;
+    color: var(--white);
+    background: linear-gradient(135deg, #2563eb, #7c3aed);
+}
+
+.hero h1 {
+    font-size: clamp(28px, 4vw, 42px);
+    margin-bottom: 12px;
+}
+
+.hero p {
+    font-size: 17px;
+    margin-bottom: 24px;
+}
+
+.primary {
+    background: var(--white);
+    color: var(--primary);
+    padding: 12px 25px;
+    border-radius: 7px;
+    font-weight: bold;
+}
+
+.primary:hover {
+    background: #eff6ff;
+}
+
+/* =========================
+   4. Main Content
+========================= */
+
+main {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px 20px;
+}
+
+main section h2 {
+    margin-bottom: 20px;
+}
+
+#shopSection {
+    scroll-margin-top: 90px;
+}
+
+/* =========================
+   5. Search Box
+========================= */
+
+#searchInput {
+    width: 100%;
+    max-width: 450px;
+    display: block;
+    padding: 12px 15px;
+    margin-bottom: 25px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--white);
+}
+
+#searchInput:focus {
+    border-color: var(--primary);
+}
+
+/* =========================
+   6. Products Grid
+========================= */
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+    align-items: stretch;
+}
+
+/* =========================
+   7. Product Cards
+========================= */
+
+.product-card {
+    min-width: 0;
+    padding: 16px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    text-align: center;
+    overflow: hidden;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.04);
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.product-card:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    transform: translateY(-3px);
+}
+
+/* Product images stay small and consistent */
+.product-card img,
+.product-image {
+    display: block;
+    width: 100%;
+    height: 180px;
+    object-fit: contain;
+    object-position: center;
+    margin: 0 auto 14px;
+    border-radius: 6px;
+    background: #ffffff;
+}
+
+.product-card h3 {
+    font-size: 18px;
+    margin: 8px 0;
+    overflow-wrap: anywhere;
+}
+
+.product-card p {
+    color: #64748b;
+    margin-bottom: 10px;
+    overflow-wrap: anywhere;
+}
+
+.product-card p strong {
+    color: var(--text);
+    font-size: 19px;
+}
+
+/* =========================
+   8. General Buttons
+========================= */
+
+.product-card button,
+.panel button,
+#details button {
+    background: var(--primary);
+    color: var(--white);
+    padding: 10px 13px;
+    border-radius: 6px;
+    margin: 5px 3px;
+    font-weight: 600;
+}
+
+.product-card button:hover,
+.panel button:hover,
+#details button:hover {
+    background: var(--primary-dark);
+}
+
+/* =========================
+   9. Panels
+========================= */
+
+.panel {
+    background: var(--white);
+    padding: 25px;
+    margin: 20px 0;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.04);
+}
+
+.panel h2 {
+    margin-bottom: 18px;
+}
+
+/* =========================
+   10. Product Details
+========================= */
+
+#details .product-image {
+    width: 100%;
+    max-width: 300px;
+    height: 220px;
+    object-fit: contain;
+    margin: 15px 0;
+}
+
+#details p {
+    margin-bottom: 12px;
+}
+
+/* =========================
+   11. Shopping Cart
+========================= */
+
+.cart-item {
+    padding: 15px;
+    margin-bottom: 15px;
+    background: #f8fafc;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+}
+
+.cart-item h3 {
+    margin-bottom: 8px;
+}
+
+.cart-item p {
+    margin-bottom: 8px;
+}
+
+.cart-item button {
+    padding: 8px 13px;
+    margin: 5px 5px 5px 0;
+    border-radius: 5px;
+    background: var(--primary);
+    color: var(--white);
+}
+
+.cart-item button[data-remove] {
+    background: var(--danger);
+}
+
+#cart > h3 {
+    margin: 20px 0;
+}
+
+/* =========================
+   12. Checkout Form
+========================= */
+
+#checkoutForm {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 550px;
+}
+
+#checkoutForm input,
+#checkoutForm textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 7px;
+    background: var(--white);
+}
+
+#checkoutForm textarea {
+    min-height: 110px;
+    resize: vertical;
+}
+
+#checkoutForm button {
+    width: fit-content;
+    padding: 11px 18px;
+    border-radius: 6px;
+    background: var(--primary);
+    color: var(--white);
+    font-weight: 600;
+}
+
+#checkoutForm button:hover {
+    background: var(--primary-dark);
+}
+
+#checkoutForm button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* =========================
+   13. Order Confirmation
+========================= */
+
+#confirmation .success {
+    text-align: center;
+    padding: 25px 10px;
+}
+
+.success h2 {
+    color: var(--success);
+    margin-bottom: 15px;
+}
+
+.success p {
+    margin: 10px 0;
+}
+
+.success h3 {
+    margin: 15px 0;
+    color: var(--primary);
+    overflow-wrap: anywhere;
+}
+
+.success button {
+    margin-top: 18px;
+    padding: 12px 20px;
+    border-radius: 7px;
+    background: var(--success);
+    color: var(--white);
+}
+
+/* =========================
+   14. Footer
+========================= */
+
+footer {
+    padding: 22px 15px;
+    text-align: center;
+    background: #0f172a;
+    color: #e2e8f0;
+    margin-top: 30px;
+}
+
+/* =========================
+   15. Tablet Responsive
+========================= */
+
+@media (max-width: 900px) {
+    main {
+        padding: 25px 16px;
+    }
+
+    .products {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+    }
+
+    .hero {
+        padding: 50px 18px;
+    }
+}
+
+/* =========================
+   16. Mobile Responsive
+========================= */
+
+@media (max-width: 550px) {
+    header {
+        padding: 12px 15px;
+        flex-wrap: wrap;
+    }
+
+    header h2 {
+        font-size: 21px;
+    }
+
+    nav {
+        gap: 6px;
+    }
+
+    nav button {
+        padding: 8px 10px;
+        font-size: 13px;
+    }
+
+    .hero {
+        padding: 40px 15px;
+    }
+
+    .hero p {
+        font-size: 15px;
+    }
+
+    main {
+        padding: 22px 12px;
+    }
+
+    .products {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .product-card {
+        padding: 10px;
+        border-radius: 9px;
+    }
+
+    .product-card img,
+    .product-image {
+        height: 125px;
+        margin-bottom: 10px;
+    }
+
+    .product-card h3 {
+        font-size: 15px;
+    }
+
+    .product-card p {
+        font-size: 13px;
+    }
+
+    .product-card p strong {
+        font-size: 16px;
+    }
+
+    .product-card button {
+        width: 100%;
+        margin: 4px 0;
+        padding: 9px 5px;
+        font-size: 12px;
+    }
+
+    .panel {
+        padding: 16px;
+    }
+
+    #details .product-image {
+        max-width: 100%;
+        height: 180px;
+    }
+
+    #checkoutForm button {
+        width: 100%;
+    }
+}
+
+/* =========================
+   17. Very Small Screens
+========================= */
+
+@media (max-width: 350px) {
+    .products {
+        grid-template-columns: 1fr;
+    }
+
+    .product-card img,
+    .product-image {
+        height: 170px;
+    }
+
+    header {
+        justify-content: center;
+    }
+}
